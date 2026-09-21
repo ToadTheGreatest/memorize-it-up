@@ -31,10 +31,17 @@ function updateInput(e) {
 }
 function updateAccuracy() {
     accuracy = (accurate / total) * 100;
-    accuracyout.value = toString(accuracy) + "%";
+    accuracyout.textContent = toString(accuracy) + "%";
 }
 function show() {
     if(showable){document.getElementById('showbutton').textContent=videoid;showable = false;setTimeout(() => {document.getElementById('showbutton').textContent='Show Video ID'}, 5000);}
+}
+function reset() {
+    showable = true;
+    progress = youtube.length;
+    accurate = 0;
+    total = 0;
+    accuracy = 100;
 }
 // NO PASTING WHATSOEVER
 window.addEventListener("paste", (e) => {
