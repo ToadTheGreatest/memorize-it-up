@@ -13,22 +13,27 @@ function updateInput(_) {
     if (input.value.length < youtube.length) {
         input.value = youtube;
         progress = youtube.length
-        total -= 1;
+        total = 0;
     }
     if (input.value != full.slice(0, progress)) {
-        progress += 1;
-        accurate += 1;
+        input.value = full.slice(0, progress - 1);
+        total -= 1
     }
     if (input.value == full) {
-        window.location.reload();
+        alert("You did it!")
     }
-    if (input.value != full.slice(0, progress - 1)) {
-        input.value = full.slice(0, progress - 1);
+    if (input.value = full.slice(0, progress)) {
+        input.value = full.slice(0, progress);
+        progress += 1;
     }
+    updateAccuracy()
 }
 function updateAccuracy() {
     accuracy = (accurate / total) * 100;
     accuracyout.value = toString(accuracy) + "%";
+}
+function show() {
+    if(showable){document.getElementById('showbutton').textContent=videoid;showable = false;setTimeout(() => {document.getElementById('showbutton').textContent='Show Video ID'}, 5000);}
 }
 // NO PASTING WHATSOEVER
 window.addEventListener("paste", (e) => {
