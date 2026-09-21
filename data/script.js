@@ -1,7 +1,7 @@
 const videoid = "dQw4w9WgXcQ";
 const youtube = "https://youtube.com?q=";
 const full = youtube + videoid;
-const input = document.getElementById("textinput");
+const textinput = document.getElementById("textinput");
 const accuracyout = document.getElementById("accuracy")
 var showable = true;
 var progress = youtube.length;
@@ -10,23 +10,23 @@ var total = 0;
 var accuracy = 100;
 function updateInput(e) {
     total += 1;
-    if (input.value.length < youtube.length) {
-        input.value = youtube;
+    if (textinput.value.length < youtube.length) {
+        textinput.value = youtube;
         progress = youtube.length
         total = 0;
         console.log("User attempting to delete YouTube link! undoing...")
     }
-    if (input.value != full.slice(0, progress + 1)) {
-        input.value = full.slice(0, progress);
+    if (textinput.value != full.slice(0, progress + 1)) {
+        textinput.value = full.slice(0, progress);
         total -= 1
-        console.log(`User got it wrong! Undoing; Metadata:\n-Progress ${progress}\n-Value ${input.value}\n-E Value ${e.value}`)
+        console.log(`User got it wrong! Undoing; Metadata:\n-Progress ${progress}\n-Value ${textinput.value}\n-E Value ${e.value}`)
     }
-    if (input.value === full) {
+    if (textinput.value === full) {
         alert("You did it!")
     }
-    if (input.value === full.slice(0, progress + 1)) {
-        input.value = full.slice(0, progress + 1);
-        console.log(`User got it  correct! Undoing; Metadata:\n-Progress ${progress}\n-Value ${input.value}\n-E Value ${e.value}`)
+    if (textinput.value === full.slice(0, progress + 1)) {
+        textinput.value = full.slice(0, progress + 1);
+        console.log(`User got it  correct! Undoing; Metadata:\n-Progress ${progress}\n-Value ${textinput.value}\n-E Value ${e.value}`)
         progress += 1;
     }
     updateAccuracy()
@@ -50,5 +50,5 @@ window.addEventListener("paste", (e) => {
     e.preventDefault();
     alert("Pasting is against our Terms Of Use!")
 })
-input.value = youtube;
-input.addEventListener("input", updateInput);
+textinput.value = youtube;
+textinput.addEventListener("input", updateInput);
