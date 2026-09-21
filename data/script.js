@@ -16,15 +16,15 @@ function updateInput(e) {
         progress = youtube.length
         total = 0;
     }
-    if (input.value != full.slice(0, progress + 1)) {
-        input.value = full.slice(0, progress);
+    if (input.value != full.slice(0, progress)) {
+        input.value = full.slice(0, progress - 1);
         total -= 1
     }
     if (input.value === full) {
         alert("You did it!")
     }
-    if (input.value === full.slice(0, progress + 1)) {
-        input.value = full.slice(0, progress + 1);
+    if (input.value === full.slice(0, progress)) {
+        input.value = full.slice(0, progress);
         progress += 1;
     }
     updateAccuracy()
