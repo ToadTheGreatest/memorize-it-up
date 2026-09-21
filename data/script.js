@@ -12,6 +12,7 @@ function updateInput(_) {
     total = 1;
     if (input.value.length < youtube.length) {
         input.value = youtube;
+        progress = youtube.length
         total -= 1;
     }
     if (input.value != full.slice(0, progress)) {
