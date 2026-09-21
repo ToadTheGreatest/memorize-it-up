@@ -10,24 +10,24 @@ var total = 0;
 var accuracy = 100;
 function updateInput(e) {
     input.value = e
-    total = 1;
+    total += 1;
     if (input.value.length < youtube.length) {
         input.value = youtube;
         progress = youtube.length
         total = 0;
         console.log("User attempting to delete YouTube link! undoing...")
     }
-    if (input.value != full.slice(0, progress)) {
-        input.value = full.slice(0, progress - 1);
+    if (input.value != full.slice(0, progress + 1)) {
+        input.value = full.slice(0, progress);
         total -= 1
         console.log(`User got it wrong! Undoing; Metadata:\n-Progress${progress}\n-Value${input.value}\n-E Value${e.value}`)
     }
     if (input.value === full) {
         alert("You did it!")
     }
-    if (input.value === full.slice(0, progress)) {
-        input.value = full.slice(0, progress);
-        console.log(`User got it correct! Undoing; Metadata:\n-Progress${progress}\n-Value${input.value}\n-E Value${e.value}`)
+    if (input.value === full.slice(0, progress + 1)) {
+        input.value = full.slice(0, progress + 1);
+        console.log(`User got it  correct! Undoing; Metadata:\n-Progress${progress}\n-Value${input.value}\n-E Value${e.value}`)
         progress += 1;
     }
     updateAccuracy()
