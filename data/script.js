@@ -3,7 +3,7 @@ const youtube = "https://youtube.com?q=";
 const full = youtube + videoid;
 const input = document.getElementById("textinput");
 var progress = youtube.length;
-function updateInput() {
+function updateInput(_) {
     if (input.value.length < youtube.length) {
         input.value = youtube;
     }
@@ -18,3 +18,4 @@ function updateInput() {
 window.addEventListener("paste", (e) => {
     e.preventDefault();
 })
+input.addEventListener("input", updateInput)
