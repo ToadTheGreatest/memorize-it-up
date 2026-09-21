@@ -15,6 +15,13 @@ function updateInput(e) {
         progress = youtube.length
         total = 0;
         console.log("User attempting to delete YouTube link! undoing...")
+        
+    }
+    if (input.value.length = youtube.length) {
+        input.value = youtube;
+        progress = youtube.length
+        total = 0;
+        console.log("You need to input something!")
     }
     if (input.value != full.slice(0, progress + 1)) {
         input.value = full.slice(0, progress);
