@@ -8,7 +8,8 @@ var progress = youtube.length;
 var accurate = 0;
 var total = 0;
 var accuracy = 100;
-function updateInput(_) {
+function updateInput(e) {
+    input.value = e
     total = 1;
     if (input.value.length < youtube.length) {
         input.value = youtube;
@@ -38,6 +39,7 @@ function show() {
 // NO PASTING WHATSOEVER
 window.addEventListener("paste", (e) => {
     e.preventDefault();
+    alert("Pasting is against our Terms Of Use!")
 })
 input.value = youtube;
 input.addEventListener("input", updateInput);
