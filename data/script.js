@@ -3,12 +3,14 @@ const youtube = "https://youtube.com/watch?q=";
 const full = youtube + videoid;
 const textinput = document.getElementById("textinput");
 const accuracyout = document.getElementById("accuracy");
+const oldaccuracyout = document.getElementById("previous");
 const hint = document.getElementById("hint");
 var progress = youtube.length;
 var accurate = 0;
 var total = 0;
 var accuracy = 100.0;
 var shows = 0
+var oldaccuracys = [];
 function setHint(str) {
     hint.textContent = str;
 }
@@ -35,9 +37,16 @@ function updateInput(e) {
         setHint("You got it! Keep it up!")
     }
     if (textinput.value === full) {
-        setHint("You did it!")
+        setHint("You did it! Now do it again! <i>(but better)<i>");
+        updateAccuracy();
+        oldaccuracys.push(accuracy);
+        updateOldAccuracys();
+        reset();
     }
     updateAccuracy()
+}
+function updateOldAccuracys() {
+    oldaccuracyout.textContent = oldaccuracys.join("%\n")+"%"
 }
 function updateAccuracy() {
     accuracy = ((accurate - shows) / total) * 100;
@@ -65,8 +74,7 @@ function bruh() {
 // NO PASTING WHATSOEVER
 window.addEventListener("paste", (e) => {
     e.preventDefault();
-    alert("Pasting is against our Terms Of Use!")
-    bruh()
+    setHint("Pasting is against our Terms Of Use!")
 })
 textinput.value = youtube;
 textinput.addEventListener("input", updateInput);
