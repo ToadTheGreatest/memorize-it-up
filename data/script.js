@@ -40,6 +40,7 @@ function updateAccuracy() {
 function show() {
     shows += 1
     document.getElementById('showbutton').textContent=videoid;setTimeout(() => {document.getElementById('showbutton').textContent='Show Video ID'}, 5000);
+    updateAccuracy()
 }
 function reset() {
     shows = 0
