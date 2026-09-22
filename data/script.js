@@ -3,11 +3,11 @@ const youtube = "https://youtube.com?q=";
 const full = youtube + videoid;
 const textinput = document.getElementById("textinput");
 const accuracyout = document.getElementById("accuracy")
-var showable = true;
 var progress = youtube.length;
 var accurate = 0;
 var total = 0;
-var accuracy = 100;
+var accuracy = 100.0;
+var shows = 0
 function updateInput(e) {
     total += 1;
     if (textinput.value.length < youtube.length) {
@@ -34,23 +34,29 @@ function updateInput(e) {
     updateAccuracy()
 }
 function updateAccuracy() {
-    accuracy = (accurate / total) * 100;
-    accuracyout.textContent = toString(accuracy) + "%";
+    accuracy = ((accurate - shows) / total) * 100;
+    accuracyout.textContent = accuracy.toFixed(0);
 }
 function show() {
-    if(showable){document.getElementById('showbutton').textContent=videoid;showable = false;setTimeout(() => {document.getElementById('showbutton').textContent='Show Video ID'}, 5000);}
+    shows += 1
+    document.getElementById('showbutton').textContent=videoid;setTimeout(() => {document.getElementById('showbutton').textContent='Show Video ID'}, 5000);
 }
 function reset() {
-    showable = true;
+    shows = 0
+    textinput.value = youtube;
     progress = youtube.length;
     accurate = 0;
     total = 0;
     accuracy = 100;
 }
+function bruh() {
+    window.location.href = youtube.videoid;
+}
 // NO PASTING WHATSOEVER
 window.addEventListener("paste", (e) => {
     e.preventDefault();
     alert("Pasting is against our Terms Of Use!")
+    bruh()
 })
 textinput.value = youtube;
 textinput.addEventListener("input", updateInput);
