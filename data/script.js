@@ -26,9 +26,6 @@ function updateInput(e) {
         console.log(`Conclusion Metadata:\n-Progress ${progress}\n-Value ${textinput.value}\n-E Value ${e.value}`);
         setHint("Nope! Do you need to see it again?")
     }
-    if (textinput.value === full) {
-        setHint("You did it!")
-    }
     if (textinput.value === full.slice(0, progress + 1)) {
         accurate += 1
         console.log(`User got it  correct! Undoing; Metadata:\n-Progress ${progress}\n-Value ${textinput.value}\n-E Value ${e.value}`)
@@ -36,6 +33,9 @@ function updateInput(e) {
         console.log(`Conclusion Metadata:\n-Progress ${progress}\n-Value ${textinput.value}\n-E Value ${e.value}`)
         progress += 1;
         setHint("You got it! Keep it up!")
+    }
+    if (textinput.value === full) {
+        setHint("You did it!")
     }
     updateAccuracy()
 }
