@@ -19,13 +19,13 @@ function updateInput(e) {
     if (textinput.value != full.slice(0, progress + 1)) {
         console.log(`User got it wrong! Undoing; Metadata:\n-Progress ${progress}\n-Value ${textinput.value}\n-E Value ${e.value}`)
         textinput.value = full.slice(0, progress);
-        total -= 1
         console.log(`Conclusion Metadata:\n-Progress ${progress}\n-Value ${textinput.value}\n-E Value ${e.value}`)
     }
     if (textinput.value === full) {
         alert("You did it!")
     }
     if (textinput.value === full.slice(0, progress + 1)) {
+        accurate += 1
         console.log(`User got it  correct! Undoing; Metadata:\n-Progress ${progress}\n-Value ${textinput.value}\n-E Value ${e.value}`)
         textinput.value = full.slice(0, progress + 1);
         console.log(`Conclusion Metadata:\n-Progress ${progress}\n-Value ${textinput.value}\n-E Value ${e.value}`)
