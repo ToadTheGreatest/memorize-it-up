@@ -1,5 +1,5 @@
 const videoid = "dQw4w9WgXcQ";
-const youtube = "https://youtube.com?q=";
+const youtube = "https://youtube.com/watch?q=";
 const full = youtube + videoid;
 const textinput = document.getElementById("textinput");
 const accuracyout = document.getElementById("accuracy");
@@ -53,7 +53,7 @@ function reset() {
     accuracy = 100.0;
 }
 function bruh() {
-    window.location.href = youtube.videoid;
+    window.location.href = youtube+videoid
 }
 // NO PASTING WHATSOEVER
 window.addEventListener("paste", (e) => {
