@@ -41,7 +41,7 @@ function updateInput(e) {
 }
 function updateAccuracy() {
     accuracy = ((accurate - shows) / total) * 100;
-    accuracyout.textContent = accuracy.toFixed(0);
+    accuracyout.textContent = accuracy.toFixed(2)+"%";
 }
 function show() {shows += 1;document.getElementById('showbutton').textContent=videoid;setTimeout(() => {document.getElementById('showbutton').textContent='Show Video ID'}, 5000);updateAccuracy();}
 function reset() {
