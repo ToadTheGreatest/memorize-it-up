@@ -37,11 +37,7 @@ function updateAccuracy() {
     accuracy = ((accurate - shows) / total) * 100;
     accuracyout.textContent = accuracy.toFixed(0);
 }
-function show() {
-    shows += 1
-    document.getElementById('showbutton').textContent=videoid;setTimeout(() => {document.getElementById('showbutton').textContent='Show Video ID'}, 5000);
-    updateAccuracy()
-}
+function show() {shows += 1;document.getElementById('showbutton').textContent=videoid;setTimeout(() => {document.getElementById('showbutton').textContent='Show Video ID'}, 5000);updateAccuracy();}
 function reset() {
     shows = 0
     textinput.value = youtube;
